@@ -19,6 +19,7 @@ public class NJITStepDefinition {
 	@Given("^User is on transcript portal$")
 	public void user_is_on_transcript_portal() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
+		System.out.println("Testing NJIT branch.");
 		System.setProperty("webdriver.chrome.driver","D:\\Eclipse\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
