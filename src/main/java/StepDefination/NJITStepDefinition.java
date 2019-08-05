@@ -83,9 +83,77 @@ public class NJITStepDefinition {
 	}
 
 	@Then("^Upload transcript and submit the transaction$")
-	public void upload_transcript_and_submit_the_transaction()  {
+	public void upload_transcript_and_submit_the_transaction() throws InterruptedException  {
 		System.out.println("Inside Then");
-	//	driver.close();
+		
+		
+	//	WebDriverWait wait = new WebDriverWait(driver, 60);
+		//WebElement Usernameinput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		 //Usernameinput.sendKeys("ss2444");
+		
+	//WebDriverWait wait = new WebDriverWait(driver,20);
+		
+		 
+		
+		//wait.until(ExpectedConditions.elementToBeClickable(By.id("username"))).click();
+		
+		              // click on the compose button as soon as the "compose" button is visible
+		
+		//driver.findElement(By.name("j_username")).sendKeys("ss2444");
+		
+		
+		
+	//	WebElement fr = driver.findElement(By.id("univWrapper"));
+		
+		driver.switchTo().frame("univWrapper");		
+		//WebElement fr = driver.findElement(By.id("univWrapper"));
+
+		//driver.switchTo().frame(fr);
+System.out.println("inside uni wrapper frame");
+
+driver.switchTo().frame("mo-university-wrapper");
+
+System.out.println("inside Mo wrapper frame");
+Thread.sleep(5000);
+		//driver.switchTo().frame("mo-university-wrapper");
+
+		driver.findElement(By.cssSelector("#username")).sendKeys("ss2444");
+		System.out.println("click  in usermane");
+		
+		
+		
+		driver.findElement(By.name("j_password")).sendKeys("sadhna1994");
+		
+		System.out.println("Before click");
+		driver.findElement(By.name("_eventId_proceed")).click();
+		System.out.println("after click");
+		
+		
+		driver.findElement(By.xpath("//li[@id='layout_6']//a")).click();
+		System.out.println("Clicked on Student services");
+		
+		driver.findElement(By.xpath("//a[contains(text(),'Self Service Banner (SSB)')]")).click();
+		System.out.println("Clicked on Service Banner");
+
+		driver.findElement(By.xpath("//a[contains(text(),'Student Records')]")).click();
+		System.out.println("Clicked on Student records");
+		
+		driver.findElement(By.xpath("//a[contains(text(),'Academic Transcript')]")).click();
+		System.out.println("Clicked on Academic Transcript");
+
+		driver.findElement(By.xpath("//div[@class='pagebodydiv']//form//input")).click();
+		System.out.println("Clicked on submit");
+
+		
+		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-univrsity[1]/div[3]/ul[1]/li[2]/a[1]/span[1]/span[1]")).click();
+		
+		System.out.println("Clicked on add to cart");
+		driver.findElement(By.xpath("//input[@class='card-button primary-color mr-1 float-right text-center']")).click();
+		System.out.println("Clicked on checkout");
+		driver.findElement(By.id("btnSubmit")).click();
+		System.out.println("Clicked on submit transacion");
+		
+		driver.close();
 	    
 	}
 	
