@@ -158,3 +158,33 @@ Thread.sleep(5000);
 	}
 	
 }
+
+//System.out.println("inside then");
+//
+//WebElement upload =  driver.findElement(By.xpath("//div[@class='container d-view-uploader']//input[@class='button-link primary-color mb-1 d-flex justify-content-center align-items-center']"));
+//upload.click();
+//Thread.sleep(2000);
+//System.out.println("trying to uplaod");
+////upload.sendKeys("C:\\Users\\bhirani\\Desktop\\aws cirtificate.png");
+//
+//Robot robot = new Robot(); 
+//robot.setAutoDelay(2000);
+//StringSelection stringSelection = new StringSelection("C:\\Users\\bhirani\\Desktop\\aws cirtificate.png");
+//Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+//
+//robot.setAutoDelay(1000);
+//
+//robot.keyPress(KeyEvent.VK_CONTROL);
+//robot.keyPress(KeyEvent.VK_V);
+//
+//robot.keyRelease(KeyEvent.VK_CONTROL);
+//robot.keyRelease(KeyEvent.VK_V);
+//
+//robot.setAutoDelay(1000);
+//
+//robot.keyPress(KeyEvent.VK_ENTER);
+//robot.keyRelease(KeyEvent.VK_ENTER);
+//
+//
+//System.out.println("after uplaod");
+//
