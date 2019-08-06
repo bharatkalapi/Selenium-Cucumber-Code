@@ -3,14 +3,19 @@ package StepDefination;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByCssSelector;
+import org.openqa.selenium.By.ByLinkText;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ByIdOrName;
+import org.openqa.selenium.support.pagefactory.ByAll;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class NJITStepDefinition {
 	
@@ -20,7 +25,10 @@ public class NJITStepDefinition {
 	public void user_is_on_transcript_portal() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
 		System.out.println("Testing NJIT branch.");
-		System.setProperty("webdriver.chrome.driver","D:\\Eclipse\\chromedriver.exe");
+	//	System.setProperty("webdriver.chrome.driver","D:\\Eclipse\\chromedriver.exe");
+		
+		WebDriverManager.chromedriver().setup();
+		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://portal-dev.measureone.com/");
@@ -143,10 +151,9 @@ Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//div[@class='pagebodydiv']//form//input")).click();
 		System.out.println("Clicked on submit");
-
+Thread.sleep(2000);
 		
-		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-univrsity[1]/div[3]/ul[1]/li[2]/a[1]/span[1]/span[1]")).click();
-		
+		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-univrsity[1]/div[3]/ul[1]")).click();
 		System.out.println("Clicked on add to cart");
 		driver.findElement(By.xpath("//input[@class='card-button primary-color mr-1 float-right text-center']")).click();
 		System.out.println("Clicked on checkout");
@@ -156,7 +163,8 @@ Thread.sleep(5000);
 		driver.close();
 	    
 	}
-	
+
+
 }
 
 //System.out.println("inside then");
