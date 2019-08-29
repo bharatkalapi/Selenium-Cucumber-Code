@@ -1,14 +1,11 @@
-package StepDefination;
+BDDFrameworkDemopackage StepDefination;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByCssSelector;
-import org.openqa.selenium.By.ByLinkText;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ByIdOrName;
-import org.openqa.selenium.support.pagefactory.ByAll;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class NJITStepDefinition {
 	
-	WebDriver driver;
+	 WebDriver driver;
 	
 	@Given("^User is on transcript portal$")
 	public void user_is_on_transcript_portal() throws InterruptedException {
@@ -152,21 +149,49 @@ Thread.sleep(5000);
 		driver.findElement(By.xpath("//div[@class='pagebodydiv']//form//input")).click();
 		System.out.println("Clicked on submit");
 Thread.sleep(2000);
+//document.getElementById('upload-action-desktop');
+
+driver.switchTo().defaultContent();
+
 		
-		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-univrsity[1]/div[3]/ul[1]")).click();
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			System.out.println("inside java script executor");
+		//	js.executeScript("document.getElementsByClassName('selectPage slider deskM1')");
+			js.executeScript("document.getElementById('upload-action-desktop').click();");
+			System.out.println("After java script executor");
+
+//	((JavascriptExecutor)driver).executeScript("document.getElementById('upload-action-desktop')");
+		
+		
+		System.out.println("After JAVA script");
+
+		//driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-univrsity[1]/div[3]/ul[1]")).click();
 		System.out.println("Clicked on add to cart");
 		driver.findElement(By.xpath("//input[@class='card-button primary-color mr-1 float-right text-center']")).click();
 		System.out.println("Clicked on checkout");
+		
+		driver.findElement(By.id("btnContinue")).click();
+		System.out.println("Clicked on Continue");
+		
+		driver.findElement(By.xpath("//div[@id='transferTranscript']//input[1]")).click();
+		System.out.println("Clicked on No");
+		
+		Thread.sleep(2000);
+
+		
 		driver.findElement(By.id("btnSubmit")).click();
 		System.out.println("Clicked on submit transacion");
+		
 		
 		driver.close();
 	    
 	}
 
 
-}
 
+
+
+}
 //System.out.println("inside then");
 //
 //WebElement upload =  driver.findElement(By.xpath("//div[@class='container d-view-uploader']//input[@class='button-link primary-color mb-1 d-flex justify-content-center align-items-center']"));
